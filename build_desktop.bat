@@ -35,6 +35,7 @@ REM 3. Compile standalone EXE with PyInstaller
 echo [3/3] Compiling standalone desktop .exe with PyInstaller...
 venv\Scripts\pyinstaller.exe --noconsole --onefile ^
   --name "BulkCertificateGenerator" ^
+  --icon "..\app_icon.ico" ^
   --clean ^
   --add-data "..\frontend\dist;frontend\dist" ^
   --hidden-import "uvicorn" ^
