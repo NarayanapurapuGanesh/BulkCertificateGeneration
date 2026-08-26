@@ -31,10 +31,16 @@ from pydantic import BaseModel
 
 import certificate_engine as engine
 
-APP_DIR = Path(__file__).resolve().parent
+if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+    BUNDLE_DIR = Path(sys._MEIPASS)
+    FRONTEND_DIST = BUNDLE_DIR / "frontend" / "dist"
+    APP_DIR = Path(os.environ.get("LOCALAPPDATA", str(Path.home()))) / "BulkCertificateGenerator"
+else:
+    APP_DIR = Path(__file__).resolve().parent
+    FRONTEND_DIST = APP_DIR.parent / "frontend" / "dist"
+
 SESSIONS_DIR = APP_DIR / "_sessions"
-SESSIONS_DIR.mkdir(exist_ok=True)
-FRONTEND_DIST = APP_DIR.parent / "frontend" / "dist"
+SESSIONS_DIR.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="Bulk Certificate Generator")
 

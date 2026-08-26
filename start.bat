@@ -1,8 +1,5 @@
 @echo off
-REM Bulk Certificate Generator - Windows launcher
-REM Starts the local backend, which also serves the built frontend
-REM if you've already run "npm run build" inside the frontend folder.
-
+REM Bulk Certificate Generator - Windows Desktop Launcher
 cd /d "%~dp0backend"
 
 if not exist venv (
@@ -14,5 +11,8 @@ if not exist venv (
     call venv\Scripts\activate.bat
 )
 
-python main.py
-pause
+python desktop.py
+if %errorlevel% neq 0 (
+    echo Falling back to web server launcher...
+    python main.py
+)

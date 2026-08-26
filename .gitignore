@@ -3,5 +3,8 @@ backend/_sessions/
 backend/__pycache__/
 backend/*.pyc
 frontend/node_modules/
+dist_app/
+build_cache/
+*.spec
 sample/output/
 .DS_Store

@@ -47,7 +47,7 @@ Generated certificates are pixel-perfect PDF files with the recipient name rende
 - **Python 3.10+** ([Download](https://www.python.org/downloads/))
 - **Node.js 18+** ([Download](https://nodejs.org/)) — only needed if you want to modify the frontend
 
-### One-Click Launch (Windows)
+### 🖥️ One-Click Desktop Launch (Windows)
 
 ```bash
 # Clone the repository
@@ -58,11 +58,19 @@ cd BulkCertificateGeneration
 start.bat
 ```
 
-The launcher will:
-1. Create a Python virtual environment (first run only)
-2. Install all backend dependencies automatically
-3. Start the server at **http://localhost:8000**
-4. Open the app in your default browser
+The launcher will automatically start the **native desktop application window** with zero terminal popups.
+
+### 📦 Build Standalone Executable (.exe)
+
+To compile a standalone `.exe` that runs anywhere without needing Python installed:
+
+```bash
+# Double-click build_desktop.bat, or run:
+build_desktop.bat
+```
+
+The standalone application will be compiled into:
+`dist_app/BulkCertificateGenerator.exe`
 
 ### Manual Setup
 
