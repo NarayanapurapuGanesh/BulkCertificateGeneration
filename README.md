@@ -139,6 +139,7 @@ Open **http://localhost:8000** in your browser.
 bulk-certificate-generator/
 ├── backend/
 │   ├── main.py                  # FastAPI server + API endpoints
+│   ├── desktop.py               # Native desktop window launcher
 │   ├── certificate_engine.py    # Core PDF processing engine
 │   └── requirements.txt         # Python dependencies
 ├── frontend/
@@ -148,8 +149,8 @@ bulk-certificate-generator/
 │   │   └── components/          # Reusable UI components
 │   ├── dist/                    # Pre-built production bundle
 │   └── package.json
-├── sample/                      # Sample template & participant list
-├── start.bat                    # Windows one-click launcher
+├── start.bat                    # One-click desktop launcher
+├── build_desktop.bat            # One-click standalone .exe builder
 ├── .gitignore
 └── README.md
 ```
@@ -159,6 +160,8 @@ bulk-certificate-generator/
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
 | **Backend** | Python 3.10+ / FastAPI / Uvicorn | REST API server |
+| **Desktop Window** | pywebview (Edge WebView2) | Native borderless desktop window |
+| **Packaging** | PyInstaller | Standalone single-file .exe compilation |
 | **PDF Engine** | PyMuPDF (fitz) | Ultra-fast PDF rendering & text insertion |
 | **PDF Forms** | pypdf | AcroForm field detection & filling |
 | **Text Overlay** | ReportLab | PDF text overlay generation |
@@ -178,18 +181,6 @@ bulk-certificate-generator/
 | `GET` | `/api/generate/{session_id}/status` | Poll generation progress |
 | `POST` | `/api/open-folder` | Native OS folder browser dialog |
 | `POST` | `/api/validate-folder` | Validate output folder path |
-
----
-
-## 🧪 Sample Files
-
-The `sample/` directory includes test files to get started immediately:
-
-| File | Description |
-|------|-------------|
-| `certificate_template.pdf` | Sample certificate template (IEEE WAMS 2026) |
-| `participants.csv` | Sample CSV with 5 participant names |
-| `make_sample_template.py` | Script to generate a new sample template |
 
 ---
 

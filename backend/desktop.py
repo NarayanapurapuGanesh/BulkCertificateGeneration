@@ -70,18 +70,24 @@ def main():
     base_url = f"http://127.0.0.1:{port}"
     wait_for_server(base_url, timeout=6.0)
 
-    # Open sleek native desktop window
-    window = webview.create_window(
-        title="Bulk Certificate Generator",
-        url=base_url,
-        width=1320,
-        height=880,
-        min_size=(980, 660),
-        resizable=True,
-        text_select=True,
-    )
-    webview.start(gui="edgechromium")
-    sys.exit(0)
+    try:
+        import webview
+        window = webview.create_window(
+            title="Bulk Certificate Generator",
+            url=base_url,
+            width=1320,
+            height=880,
+            min_size=(980, 660),
+            resizable=True,
+            text_select=True,
+        )
+        webview.start(gui="edgechromium")
+        sys.exit(0)
+    except Exception:
+        import webbrowser
+        webbrowser.open(base_url)
+        while True:
+            time.sleep(1)
 
 
 if __name__ == "__main__":
