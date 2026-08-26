@@ -12,7 +12,6 @@ import threading
 import time
 import urllib.request
 import uvicorn
-import webview
 
 from main import app, FRONTEND_DIST
 
