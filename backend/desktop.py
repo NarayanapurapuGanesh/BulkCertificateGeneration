@@ -87,7 +87,8 @@ def main():
     server_ok = wait_for_server(base_url, timeout=10.0)
 
     try:
-        import webview
+        import importlib
+        webview = importlib.import_module("webview")
         window = webview.create_window(
             title="Bulk Certificate Generator",
             url=base_url,

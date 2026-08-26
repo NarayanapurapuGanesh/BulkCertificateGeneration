@@ -62,15 +62,23 @@ The launcher will automatically start the **native desktop application window** 
 
 ### 📦 Build Standalone Executable (.exe)
 
-To compile a standalone `.exe` that runs anywhere without needing Python installed:
+To compile a standalone portable `.exe` that runs anywhere without needing Python installed:
 
 ```bash
 # Double-click build_desktop.bat, or run:
 build_desktop.bat
 ```
+Output: `dist_app/BulkCertificateGenerator.exe`
 
-The standalone application will be compiled into:
-`dist_app/BulkCertificateGenerator.exe`
+### 💿 Build Windows Setup Installer (.exe with Setup Wizard)
+
+To create an official Windows installer that installs into `Program Files`, adds a Start Menu/Desktop shortcut, and appears in **Windows Installed Apps**:
+
+```bash
+# Double-click build_installer.bat, or run:
+build_installer.bat
+```
+Output: `dist_installer/BulkCertificateGenerator_Setup.exe`
 
 ### Manual Setup
 

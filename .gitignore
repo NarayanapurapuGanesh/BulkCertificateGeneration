@@ -4,6 +4,7 @@ backend/__pycache__/
 backend/*.pyc
 frontend/node_modules/
 dist_app/
+dist_installer/
 build_cache/
 *.spec
 sample/output/
