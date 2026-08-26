@@ -37,16 +37,25 @@ venv\Scripts\pyinstaller.exe --noconsole --onefile ^
   --name "BulkCertificateGenerator" ^
   --clean ^
   --add-data "..\frontend\dist;frontend\dist" ^
+  --hidden-import "uvicorn" ^
   --hidden-import "uvicorn.logging" ^
   --hidden-import "uvicorn.loops" ^
-  --hidden-import "uvicorn.loops.auto" ^
+  --hidden-import "uvicorn.loops.asyncio" ^
   --hidden-import "uvicorn.protocols" ^
   --hidden-import "uvicorn.protocols.http" ^
   --hidden-import "uvicorn.protocols.http.auto" ^
+  --hidden-import "uvicorn.protocols.http.h11_impl" ^
+  --hidden-import "uvicorn.protocols.http.httptools_impl" ^
+  --hidden-import "uvicorn.protocols.websockets" ^
+  --hidden-import "uvicorn.protocols.websockets.auto" ^
   --hidden-import "uvicorn.lifespans" ^
-  --hidden-import "uvicorn.lifespans.on" ^
+  --hidden-import "uvicorn.lifespans.off" ^
+  --hidden-import "fastapi" ^
+  --hidden-import "fastapi.staticfiles" ^
+  --hidden-import "fastapi.middleware.cors" ^
+  --hidden-import "starlette.staticfiles" ^
   --hidden-import "pymupdf" ^
-  --hidden-import "reportlab" ^
+  --hidden-import "pypdf" ^
   --hidden-import "openpyxl" ^
   --hidden-import "clr_loader" ^
   --hidden-import "pythonnet" ^

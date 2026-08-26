@@ -31,9 +31,16 @@ from pydantic import BaseModel
 
 import certificate_engine as engine
 
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, "w", encoding="utf-8")
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, "w", encoding="utf-8")
+
 if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
     BUNDLE_DIR = Path(sys._MEIPASS)
     FRONTEND_DIST = BUNDLE_DIR / "frontend" / "dist"
+    if not FRONTEND_DIST.exists():
+        FRONTEND_DIST = BUNDLE_DIR / "dist"
     APP_DIR = Path(os.environ.get("LOCALAPPDATA", str(Path.home()))) / "BulkCertificateGenerator"
 else:
     APP_DIR = Path(__file__).resolve().parent
